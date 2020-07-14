@@ -14,7 +14,7 @@ export class TasksController {
     @Post()
     createTask(
         @Body('title') title: string,
-        @Body('description') content: string,
+        @Body('content') content: string,
     ): Task {
         return this.tasksService.createTask(title, content);
     }
