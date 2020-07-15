@@ -9,7 +9,7 @@ export class TasksService {
 
     createTask(createTaskDTO: CreateTaskDTO): Task {
         const { title, content } = createTaskDTO;
-        
+
         const task: Task = {
             id: uuidv4(),
             title,
@@ -18,6 +18,17 @@ export class TasksService {
         }
 
         this.tasks.push(task);
+        return task;
+    }
+
+    updateTaskStatus(
+        id: string,
+        status: TaskStatus
+    ): Task {
+        const task = this.getTaskById(id);
+        console.log(task, status)
+        task.status = status;
+
         return task;
     }
 
